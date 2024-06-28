@@ -2,10 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 
+/*                      */
+/*    READING A FILE    */
+/*                      */
+
 /* BELOW IS A BLOCK THAT OPENS A FILE FROM A PATH
-    UTF8 IS PROVIDED TO AVOID PRINTING BUFFER (IT PRINTS STRING USING UTF8 DECODING)
-    THE PATH IS HARDCODED WHICH ISN'T THE BEST PRACTICE GIVEN THAT IT COMES IN A STRING AND SOME SYSTEMS HAVE DIFFERING PATH STRINGS,
-     i.e windows hase \ and mac has /  */
+UTF8 IS PROVIDED TO AVOID PRINTING BUFFER (IT PRINTS STRING USING UTF8 DECODING)
+THE PATH IS HARDCODED WHICH ISN'T THE BEST PRACTICE GIVEN THAT IT COMES IN A STRING AND SOME SYSTEMS HAVE DIFFERING PATH STRINGS,
+i.e windows hase \ and mac has /  */
 fs.readFile('./files/starter.txt', 'utf8', (err, data) => {
     if (err) throw err // uncaught exception
     console.log(data)
@@ -22,7 +26,44 @@ fs.readFile(path.join(__dirname, 'files', 'starter.txt'), 'utf8', (err, data) =>
 /* THE TWO ABOVE BLOCKS OF CODE YIELD THE SAME OUTPUT */
 
 
-/* Asyncronous operations in Node.JS */
+/*                      */
+/*   WRITING TO A FILE  */
+/*                      */
+
+/* The below block of code creates a 'reply.txt' file in the specified dir, and populates it with the provided string
+The callback function only takes in err, as per no data being present (it is not a read operation, but a write one)
+it throws an error conditionally, or shows success message
+no data to log (write operation) */
+fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), '"Foo bar" is a well known programming placeholder', (err) => {
+    if (err) throw err // uncaught exception
+    console.log('Write Complete')
+})
+
+/*                        */
+/*   APPENDING TO A FILE  */
+/*                        */
+
+fs.appendFile(path.join(__dirname, 'files', 'reply.txt'), 'I am a big boy', (err) => {
+    if (err) throw err // uncaught exception
+    console.log('Append Operation Complete')
+})
+
+/* If the file we are appending to doesn't exist appendFile will on default behave like writeFile */
+
+fs.appendFile(path.join(__dirname, 'files', 'reply1.txt'), 'I am a big boy', (err) => {
+    if (err) throw err // uncaught exception
+    console.log('Append Operation Complete')
+})
+
+
+
+
+
+
+
+
+
+/* Asynchronous operations in Node.JS */
 
 console.log('Hello World') // this is logged before the above instructions, as Node does process requests asynchronously
 
