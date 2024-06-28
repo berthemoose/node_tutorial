@@ -1,12 +1,4 @@
-/* _   _           _          ___ _____                                    _                 _             _         _             _       _ 
-| \ | |         | |        |_  /  ___|                                  | |               (_)           | |       | |           (_)     | |
-|  \| | ___   __| | ___      | \ `--.   ______    __ _ _ __     _____  _| |_ ___ _ __  ___ ___   _____  | |_ _   _| |_ ___  _ __ _  __ _| |
-| . ` |/ _ \ / _` |/ _ \     | |`--. \ |______|  / _` | '_ \   / _ \ \/ / __/ _ \ '_ \/ __| \ \ / / _ \ | __| | | | __/ _ \| '__| |/ _` | |
-| |\  | (_) | (_| |  __/ /\__/ /\__/ /          | (_| | | | | |  __/>  <| ||  __/ | | \__ \ |\ V /  __/ | |_| |_| | || (_) | |  | | (_| | |
-\_| \_/\___/ \__,_|\___| \____/\____/            \__,_|_| |_|  \___/_/\_\\__\___|_| |_|___/_| \_/ \___|  \__|\__,_|\__\___/|_|  |_|\__,_|_|           
-                                                                                                                                        */    
-
-/* 
+            NODE JS EXTENSIVE TUTORIAL
             Node.JS is a JavaScript runtime environment compatible with Windows, Linux, Unix, MacOS and other operating systems.
             
             Contrary to what JavaScript was until its creation (2010), Node.JS runs within the user's computer, and not strictly in the browser. 
