@@ -3,7 +3,7 @@ const path = require('path');
 
 
 /*                      */
-/*    READING A FILE    */
+/*    1. READING A FILE    */
 /*                      */
 
 /* BELOW IS A BLOCK THAT OPENS A FILE FROM A PATH
@@ -26,22 +26,22 @@ fs.readFile(path.join(__dirname, 'files', 'starter.txt'), 'utf8', (err, data) =>
 /* THE TWO ABOVE BLOCKS OF CODE YIELD THE SAME OUTPUT */
 
 
-/*                      */
-/*   WRITING TO A FILE  */
-/*                      */
+/*                         */
+/*   2. WRITING TO A FILE  */
+/*                         */
 
 /* The below block of code creates a 'reply.txt' file in the specified dir, and populates it with the provided string
 The callback function only takes in err, as per no data being present (it is not a read operation, but a write one)
 it throws an error conditionally, or shows success message
 no data to log (write operation) */
-fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), '"Foo bar" is a well known programming placeholder', (err) => {
+fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), '"Foo bar" is a popular programming placeholder', (err) => {
     if (err) throw err // uncaught exception
     console.log('Write Complete')
 })
 
-/*                        */
-/*   APPENDING TO A FILE  */
-/*                        */
+/*                          */
+/*  3. APPENDING TO A FILE  */
+/*                          */
 
 fs.appendFile(path.join(__dirname, 'files', 'reply.txt'), 'I am a big boy', (err) => {
     if (err) throw err // uncaught exception
@@ -54,6 +54,17 @@ fs.appendFile(path.join(__dirname, 'files', 'reply1.txt'), 'I am a big boy', (er
     if (err) throw err // uncaught exception
     console.log('Append Operation Complete')
 })
+
+/*                           */
+/*   4. RENAMING A FILE     */
+/*                          */
+
+fs.rename(path.join(__dirname, 'files', 'reply.txt'),(__dirname, 'files', 'newReply.txt') , (err) => {
+    if (err) throw err // uncaught exception
+    console.log('Rename Operation Complete')
+})
+
+
 
 
 
