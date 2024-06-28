@@ -65,6 +65,22 @@ fs.rename(path.join(__dirname, 'files', 'reply.txt'),(__dirname, 'files', 'newRe
 })
 
 
+/* We can nest these operations within their parents' callbacks, like so: */
+
+fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), '"Foo bar" is a popular programming placeholder', (err) => {
+    if (err) throw err 
+    fs.appendFile(path.join(__dirname, 'files', 'reply1.txt'), 'I am a big boy', (err) => {
+        if (err) throw err
+        fs.rename(path.join(__dirname, 'files', 'reply.txt'),(__dirname, 'files', 'newReply.txt') , (err) => {
+            if (err) throw err
+            console.log('Rename Operation Complete')
+        })        
+    })    
+})
+
+/* The above is sometimes called 'callback hell' */
+
+
 
 
 
