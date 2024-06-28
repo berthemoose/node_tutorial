@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 
-/*                      */
+/*                         */
 /*    1. READING A FILE    */
-/*                      */
+/*                         */
 
 /* BELOW IS A BLOCK THAT OPENS A FILE FROM A PATH
 UTF8 IS PROVIDED TO AVOID PRINTING BUFFER (IT PRINTS STRING USING UTF8 DECODING)
@@ -56,8 +56,8 @@ fs.appendFile(path.join(__dirname, 'files', 'reply1.txt'), 'I am a big boy', (er
 })
 
 /*                           */
-/*   4. RENAMING A FILE     */
-/*                          */
+/*   4. RENAMING A FILE      */
+/*                           */
 
 fs.rename(path.join(__dirname, 'files', 'reply.txt'),(__dirname, 'files', 'newReply.txt') , (err) => {
     if (err) throw err // uncaught exception
