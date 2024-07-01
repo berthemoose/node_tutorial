@@ -1,0 +1,2 @@
+Hello, I am a happy string that lives in reply.txt
+Text in a new line
