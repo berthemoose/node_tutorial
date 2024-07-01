@@ -1,10 +1,6 @@
-NODE JS EXTENSIVE TUTORIAL
-Node.JS is a JavaScript runtime environment compatible with Windows, Linux, Unix, MacOS and other operating systems.
+This is a set of my Node.JS notes that I took why learning this environment. I had some fundamental JS and alogrythmics knowledge before beginning. 
+These notes are based on several tutorials that I watched. They will all be listed below as attributions. 
+This is by no means a professional's POV on learning anything, just my own documentation of the progress I make. 
+Writing these notes helped me learn, and if reading them helps you, go ahead and use them. 
 
-Contrary to what JavaScript was until its creation (2010), Node.JS runs within the user's computer, and not strictly in the browser. 
-It allows for JS to be used as a full capacity server programming language, and helped it become the most popular programming language on the planet.
-
-Thanks to its well developed functionality in all modern browsers, combined with the server compatibility added by Node, JavaScript remains the one and only truly 'full-stack' programming language. It can be used to build applications in systems like the MERN stack that are based on Node, Express.js, React and MongoDB, or other web dev stacks based on JS. 
-
-
-/* ATTRIBUTIONS: */
+Remember to never rely on anything else that docs for absolute truth. Node's are here: https://nodejs.org/docs/latest/api/

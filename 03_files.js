@@ -22,6 +22,8 @@ fs.readFile('./files/starter.txt', 'utf8', (err, data) => {
     console.log(data);
 });
 
+console.log('This is to demonstrate that the read function in Node works asynchronously. Although it comes last in the script, this statement should be logged first in the terminal')
+
 /* UNCOMMENT THE BELOW BLOCK TO TEST CATCHING ERRORS */
 /* fs.readFile('./files/no-such-file-lol.txt', 'utf8', (err, data) => {
     if (err) throw err;
