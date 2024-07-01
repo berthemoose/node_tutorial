@@ -7,7 +7,7 @@ const fs = require('fs'); //import the filesystem (fs) core module
 const path = require('path');
 
 
-/* 1) READING FILES */
+/* 1) READING FILES: */
 // The below data will be presented as bufffer data:
 fs.readFile('./files/starter.txt', (err, data) => {
     if (err) throw err;
@@ -37,11 +37,7 @@ fs.readFile(path.join(__dirname, 'files', 'starter.txt'), 'utf8', (err, data) =>
     console.log(data);
 });
 
-console.log('This is to demonstrate that the read function in Node works asynchronously. Although it comes last in the script, this statement should be logged first in the terminal')
-
-
-
-/* 2) WRITING AND APPENDING TO FILES */
+/* 2) WRITING AND APPENDING TO FILES: */
 /* The below block will write to a specified file */
 /* We do not need to tell it which encoding to use, as it will use utf8 by default. There is no data callback, as it doesn't read any data. */
 /* The data to write is provided before the callback.   */
@@ -50,15 +46,41 @@ fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Hello, I am a happy st
     console.log('Write complete');
 });
 
+// appendFile can add new data to an already existing file:
 fs.appendFile(path.join(__dirname, 'files', 'reply.txt'), '\nText in a new line', (err) => {
     if (err) throw err;
-    console.log('Write complete');
+    console.log('Append complete');
 });
 
+// it will create a file if it doesn't exist:
+fs.appendFile(path.join(__dirname, 'files', 'newFile.txt'), '\nText in a new line', (err) => {
+    if (err) throw err;
+    console.log('Append complete');
+});
 
+/* 3) NODE'S ASYNCRHONICITY IN CONTEXT: */
+console.log('This is to demonstrate that the read function in Node works asynchronously. Although it comes last in the script, this statement should be logged first in the terminal');
+/* Although the above blocks work fine in this simple example, it is important to understand how Node works asynchronously. */
+/* This means that there might be a case in which if we wanted to create a file and then append to it, it wouldn't be a given that it existed at the time the appending block runs */
+/* To avoid an error in such case it's best to make sure one block runs AFTER the other is complete. */
+/* This is achieved via nesting it in a callback to the parent block */
+fs.writeFile(path.join(__dirname, 'files', 'reply1.txt'), 'There is a callback line right below me', (err) => {
+    if (err) throw err;
+    console.log('Write complete, now appending');
+    fs.appendFile(path.join(__dirname, 'files', 'reply1.txt'), '\n I had been added via a callback', (err) => {
+        if (err) throw err;
+        console.log('Append complete, now renaming');
+        fs.rename(path.join(__dirname, 'files', 'reply1.txt'), path.join(__dirname, 'files', 'newReply1.txt'), (err) => {
+            if (err) throw err;
+            console.log('All complete');
+        });
+    });
+});
 
-/* 3) CATCHING ERRORS */
+/* Although accurate, the above code wouldn't be considered very clean as it presents something nicknamed as 'callback hell'.
+It's better to use async await  */
 
+/* 4) CATCHING ERRORS */
 /* UNCOMMENT THE BELOW BLOCK TO TEST CATCHING ERRORS */
 /* fs.readFile('./files/no-such-file-lol.txt', 'utf8', (err, data) => {
     if (err) throw err;
@@ -71,6 +93,7 @@ process.on('uncaughtException', err => {
     console.error(`There was an uncaught error: ${err}`);
     process.exit(1);
 });
+
 
 
 
