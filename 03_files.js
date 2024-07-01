@@ -22,4 +22,19 @@ fs.readFile('./files/starter.txt', 'utf8', (err, data) => {
     console.log(data);
 });
 
+/* UNCOMMENT THE BELOW BLOCK TO TEST CATCHING ERRORS */
+/* fs.readFile('./files/no-such-file-lol.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+}); */
+
+// exit on uncaught errors
+// process is a built in module that provides information and control over the current Node process
+process.on('uncaughtException', err => {
+    console.error(`There was an uncaught error: ${err}`);
+    process.exit(1);
+});
+
+
+
 
