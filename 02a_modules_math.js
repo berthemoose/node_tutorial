@@ -8,12 +8,11 @@ const multiply = (a,b) => a * b;
 const divide = (a,b) => a / b; 
 
 // exporting the above funcs:
-
-module.exports = { add, subtract, multiply, divide } // passing an object containing all of the above functions to export from this module
-
-
-
+//module.exports = { add, subtract, multiply, divide } 
+// instead of module.exports we can just do:
 exports.add = (a,b) => a+b
 exports.subtract = (a,b) => a-b
 exports.multiply = (a,b) => a*b
 exports.divide = (a,b) => a/b
+//it will give the same result
+

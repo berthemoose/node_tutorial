@@ -45,9 +45,13 @@ console.log(path.parse(__filename)); // logs the entire object with all of the p
 const math = require('./02a_modules_math'); // importing the math function from the './02a_modules_math.js'
 
 /* Code below will execute the imported function */
-console.log(math.add(2,3)) // functions from this module can work everywhere in the app after and export and import
+console.log(math.add(2,3)) // Output: 5
 
 // we can import a module in a more direct way: 
-const { add } = require('./02a_modules_math')
-/* and then use it: */
-console.log(add(10,2)); //Output: '12'
+const { add, subtract, divide, multiply } = require('./02a_modules_math')
+/* and then use its funcs directly: */
+console.log(add(10,2)); //Output: 12
+console.log(subtract(10,2)); //Output: 8
+console.log(divide(10,2)); //Output: 5
+console.log(multiply(10,2)); //Output: 20
+
