@@ -58,7 +58,7 @@ fs.appendFile(path.join(__dirname, 'files', 'newFile.txt'), '\nText in a new lin
     console.log('Append complete');
 });
 
-/* 3) NODE'S ASYNCRHONICITY IN CONTEXT: */
+/* 3) NODE'S ASYNCRHONICITY IN CONTEXT ('CALLBACK HELL'): */
 console.log('This is to demonstrate that the read function in Node works asynchronously. Although it comes last in the script, this statement should be logged first in the terminal');
 /* Although the above blocks work fine in this simple example, it is important to understand how Node works asynchronously. */
 /* This means that there might be a case in which if we wanted to create a file and then append to it, it wouldn't be a given that it existed at the time the appending block runs */
@@ -77,8 +77,7 @@ fs.writeFile(path.join(__dirname, 'files', 'reply1.txt'), 'There is a callback l
     });
 });
 
-/* Although accurate, the above code wouldn't be considered very clean as it presents something nicknamed as 'callback hell'.
-It's better to use async await  */
+/* Check the 03a_files_async to see a way more ordered and continous version of the above block. */
 
 /* 4) CATCHING ERRORS */
 /* UNCOMMENT THE BELOW BLOCK TO TEST CATCHING ERRORS */
